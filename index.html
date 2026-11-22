@@ -18,8 +18,6 @@
       --muted: #94a3b8;
       --accent: #38bdf8;
       --accent-soft: rgba(56, 189, 248, 0.14);
-      --ios: #0f172a;
-      --android: #10b981;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -119,12 +117,32 @@
     .card.hidden {
       display: none;
     }
+    .card-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+    .app-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 15px;
+      object-fit: cover;
+      flex-shrink: 0;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: #0f172a;
+    }
+    .card-info {
+      flex: 1;
+      min-width: 0;
+    }
     .card-top {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
-      gap: 12px;
-      margin-bottom: 8px;
+      gap: 10px;
+      margin-bottom: 6px;
+      flex-wrap: wrap;
     }
     .cat-tag {
       font-size: 11px;
@@ -140,11 +158,11 @@
     .card h2 {
       font-size: 18px;
       font-weight: 700;
+      line-height: 1.3;
     }
     .card p {
       color: var(--muted);
       font-size: 14px;
-      margin-bottom: 14px;
     }
     .actions {
       display: flex;
@@ -208,11 +226,16 @@
     <main class="grid" id="appGrid">
       <!-- 1. Sorumatik AI -->
       <article class="card" data-cat="edu">
-        <div class="card-top">
-          <h2>Sorumatik: AI Homework Help</h2>
-          <span class="cat-tag" data-tr="Eğitim & AI" data-en="Education & AI">Eğitim & AI</span>
+        <div class="card-header">
+          <img class="app-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/3e/07/e9/3e07e924-9a39-4831-32cd-466b84acb4d7/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="Sorumatik: AI Homework Help" loading="lazy" />
+          <div class="card-info">
+            <div class="card-top">
+              <h2>Sorumatik: AI Homework Help</h2>
+              <span class="cat-tag" data-tr="Eğitim & AI" data-en="Education & AI">Eğitim & AI</span>
+            </div>
+            <p data-tr="LaTeX beyaz tahtada sesli yapay zeka video çözümleri, fotoğraf OCR ve 8 çalışma aracı." data-en="Voiced AI video solutions on an interactive LaTeX whiteboard, photo OCR, and 8 AI study tools.">LaTeX beyaz tahtada sesli yapay zeka video çözümleri, fotoğraf OCR ve 8 çalışma aracı.</p>
+          </div>
         </div>
-        <p data-tr="LaTeX beyaz tahtada sesli yapay zeka video çözümleri, fotoğraf OCR ve 8 çalışma aracı." data-en="Voiced AI video solutions on an interactive LaTeX whiteboard, photo OCR, and 8 AI study tools.">LaTeX beyaz tahtada sesli yapay zeka video çözümleri, fotoğraf OCR ve 8 çalışma aracı.</p>
         <div class="actions">
           <a class="store-btn btn-ios" href="https://apps.apple.com/app/id1493017386" target="_blank" rel="noopener">App Store (iOS)</a>
           <a class="store-btn btn-android" href="https://play.google.com/store/apps/details?id=com.sorumatik" target="_blank" rel="noopener">Google Play (Android)</a>
@@ -221,11 +244,16 @@
 
       <!-- 2. Sorumatik YKS LGS AI Koçluk -->
       <article class="card" data-cat="edu">
-        <div class="card-top">
-          <h2>Sorumatik: YKS LGS AI Koçluk</h2>
-          <span class="cat-tag" data-tr="Eğitim & AI" data-en="Education & AI">Eğitim & AI</span>
+        <div class="card-header">
+          <img class="app-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/0f/e3/19/0fe319c9-9b50-2bb0-aafb-8543b105b98d/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="Sorumatik: YKS LGS AI Koçluk" loading="lazy" />
+          <div class="card-info">
+            <div class="card-top">
+              <h2>Sorumatik: YKS LGS AI Koçluk</h2>
+              <span class="cat-tag" data-tr="Eğitim & AI" data-en="Education & AI">Eğitim & AI</span>
+            </div>
+            <p data-tr="YKS/LGS yapay zeka çalışma planı, Pusula AI sesli koç, deneme OCR analizi ve hata defteri." data-en="YKS/LGS AI study planner, Pusula AI voice coach, practice-exam OCR analysis, and mistake notebook.">YKS/LGS yapay zeka çalışma planı, Pusula AI sesli koç, deneme OCR analizi ve hata defteri.</p>
+          </div>
         </div>
-        <p data-tr="YKS/LGS yapay zeka çalışma planı, Pusula AI sesli koç, deneme OCR analizi ve hata defteri." data-en="YKS/LGS AI study planner, Pusula AI voice coach, practice-exam OCR analysis, and mistake notebook.">YKS/LGS yapay zeka çalışma planı, Pusula AI sesli koç, deneme OCR analizi ve hata defteri.</p>
         <div class="actions">
           <a class="store-btn btn-ios" href="https://apps.apple.com/app/id6825694786" target="_blank" rel="noopener">App Store (iOS)</a>
           <a class="store-btn btn-android" href="https://play.google.com/store/apps/details?id=co.sorumatik.kocluk.planner" target="_blank" rel="noopener">Google Play (Android)</a>
@@ -234,11 +262,16 @@
 
       <!-- 3. Penglide -->
       <article class="card" data-cat="notes">
-        <div class="card-top">
-          <h2>Penglide: Notes, PDF, Tutoring</h2>
-          <span class="cat-tag" data-tr="Not & PDF" data-en="Notes & PDF">Not & PDF</span>
+        <div class="card-header">
+          <img class="app-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/6c/1e/f4/6c1ef474-86e3-343e-78b9-29e3d707c27d/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="Penglide: Notes, PDF, Tutoring" loading="lazy" />
+          <div class="card-info">
+            <div class="card-top">
+              <h2>Penglide: Notes, PDF, Tutoring</h2>
+              <span class="cat-tag" data-tr="Not & PDF" data-en="Notes & PDF">Not & PDF</span>
+            </div>
+            <p data-tr="17 vektör kalem, seçilebilir metin PDF işaretleme, lazer işaretçi ve ders sayacı. Çevrimdışı, reklamsız." data-en="17 vector pens, selectable-text PDF markup, laser pointer, and lesson timer. Offline and ad-free.">17 vektör kalem, seçilebilir metin PDF işaretleme, lazer işaretçi ve ders sayacı. Çevrimdışı, reklamsız.</p>
+          </div>
         </div>
-        <p data-tr="17 vektör kalem, seçilebilir metin PDF işaretleme, lazer işaretçi ve ders sayacı. Çevrimdışı, reklamsız." data-en="17 vector pens, selectable-text PDF markup, laser pointer, and lesson timer. Offline and ad-free.">17 vektör kalem, seçilebilir metin PDF işaretleme, lazer işaretçi ve ders sayacı. Çevrimdışı, reklamsız.</p>
         <div class="actions">
           <a class="store-btn btn-ios" href="https://apps.apple.com/app/id6832604634" target="_blank" rel="noopener">App Store (iOS)</a>
           <a class="store-btn btn-android" href="https://play.google.com/store/apps/details?id=co.sorumatik.penglide" target="_blank" rel="noopener">Google Play (Android)</a>
@@ -247,11 +280,16 @@
 
       <!-- 4. Markly OMR -->
       <article class="card" data-cat="teacher">
-        <div class="card-top">
-          <h2>Markly - OMR Sheet Scanner</h2>
-          <span class="cat-tag" data-tr="Öğretmen & Tahta" data-en="Teachers & Board">Öğretmen & Tahta</span>
+        <div class="card-header">
+          <img class="app-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/2e/e3/9d/2ee39db8-52dd-2268-af12-0796a3d2cc32/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="Markly - OMR Sheet Scanner" loading="lazy" />
+          <div class="card-info">
+            <div class="card-top">
+              <h2>Markly - OMR Sheet Scanner</h2>
+              <span class="cat-tag" data-tr="Öğretmen & Tahta" data-en="Teachers & Board">Öğretmen & Tahta</span>
+            </div>
+            <p data-tr="Telefon kamerasıyla çevrimdışı optik form okuma, net hesaplama ve PDF raporlama." data-en="Offline phone-camera bubble-sheet scanner with unclear mark review, scoring, and PDF reports.">Telefon kamerasıyla çevrimdışı optik form okuma, net hesaplama ve PDF raporlama.</p>
+          </div>
         </div>
-        <p data-tr="Telefon kamerasıyla çevrimdışı optik form okuma, net hesaplama ve PDF raporlama." data-en="Offline phone-camera bubble-sheet scanner with unclear mark review, scoring, and PDF reports.">Telefon kamerasıyla çevrimdışı optik form okuma, net hesaplama ve PDF raporlama.</p>
         <div class="actions">
           <a class="store-btn btn-ios" href="https://apps.apple.com/app/id6818606786" target="_blank" rel="noopener">App Store (iOS)</a>
           <a class="store-btn btn-android" href="https://play.google.com/store/apps/details?id=co.sorumatik.omr" target="_blank" rel="noopener">Google Play (Android)</a>
@@ -260,11 +298,16 @@
 
       <!-- 5. CastHop -->
       <article class="card" data-cat="teacher">
-        <div class="card-top">
-          <h2>CastHop: Screen Mirroring</h2>
-          <span class="cat-tag" data-tr="Öğretmen & Tahta" data-en="Teachers & Board">Öğretmen & Tahta</span>
+        <div class="card-header">
+          <img class="app-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/58/7d/70/587d7092-a292-e5db-fc43-34b5f1d07e6b/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg" alt="CastHop: Screen Mirroring" loading="lazy" />
+          <div class="card-info">
+            <div class="card-top">
+              <h2>CastHop: Screen Mirroring</h2>
+              <span class="cat-tag" data-tr="Öğretmen & Tahta" data-en="Teachers & Board">Öğretmen & Tahta</span>
+            </div>
+            <p data-tr="Akıllı tahtalara ve TV'lere kablosuz ekran yansıtma." data-en="Wireless screen mirroring to smart boards and TVs.">Akıllı tahtalara ve TV'lere kablosuz ekran yansıtma.</p>
+          </div>
         </div>
-        <p data-tr="Akıllı tahtalara ve TV'lere kablosuz ekran yansıtma." data-en="Wireless screen mirroring to smart boards and TVs.">Akıllı tahtalara ve TV'lere kablosuz ekran yansıtma.</p>
         <div class="actions">
           <a class="store-btn btn-ios" href="https://apps.apple.com/app/id6832547351" target="_blank" rel="noopener">App Store (iOS)</a>
           <a class="store-btn btn-android" href="https://play.google.com/store/apps/details?id=com.sorumatik.casthop" target="_blank" rel="noopener">Google Play (Android)</a>
@@ -273,11 +316,16 @@
 
       <!-- 6. PenPointer -->
       <article class="card" data-cat="teacher">
-        <div class="card-top">
-          <h2>PenPointer: Smart Board Stylus</h2>
-          <span class="cat-tag" data-tr="Öğretmen & Tahta" data-en="Teachers & Board">Öğretmen & Tahta</span>
+        <div class="card-header">
+          <img class="app-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/3b/92/4b/3b924b4b-7ae5-e6a1-97ef-7836817002a1/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg" alt="PenPointer: Smart Board Stylus" loading="lazy" />
+          <div class="card-info">
+            <div class="card-top">
+              <h2>PenPointer: Smart Board Stylus</h2>
+              <span class="cat-tag" data-tr="Öğretmen & Tahta" data-en="Teachers & Board">Öğretmen & Tahta</span>
+            </div>
+            <p data-tr="Tablet ve telefonu akıllı tahta sunumları için kablosuz kalem ve işaretçiye dönüştürün." data-en="Use your tablet or phone as a pointer and stylus for smart-board tutoring.">Tablet ve telefonu akıllı tahta sunumları için kablosuz kalem ve işaretçiye dönüştürün.</p>
+          </div>
         </div>
-        <p data-tr="Tablet ve telefonu akıllı tahta sunumları için kablosuz kalem ve işaretçiye dönüştürün." data-en="Use your tablet or phone as a pointer and stylus for smart-board tutoring.">Tablet ve telefonu akıllı tahta sunumları için kablosuz kalem ve işaretçiye dönüştürün.</p>
         <div class="actions">
           <a class="store-btn btn-ios" href="https://apps.apple.com/app/id6827931852" target="_blank" rel="noopener">App Store (iOS)</a>
           <a class="store-btn btn-android" href="https://play.google.com/store/apps/details?id=com.sorumatik.penpointeripad" target="_blank" rel="noopener">Google Play (Android)</a>
@@ -286,11 +334,16 @@
 
       <!-- 7. Kazanım Defterim -->
       <article class="card" data-cat="teacher">
-        <div class="card-top">
-          <h2>Kazanım Defterim: Ders Planı</h2>
-          <span class="cat-tag" data-tr="Öğretmen & Tahta" data-en="Teachers & Board">Öğretmen & Tahta</span>
+        <div class="card-header">
+          <img class="app-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/af/f2/76/aff27619-c816-b290-b240-ded0cde4e00b/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="Kazanım Defterim: Ders Planı" loading="lazy" />
+          <div class="card-info">
+            <div class="card-top">
+              <h2>Kazanım Defterim: Ders Planı</h2>
+              <span class="cat-tag" data-tr="Öğretmen & Tahta" data-en="Teachers & Board">Öğretmen & Tahta</span>
+            </div>
+            <p data-tr="Öğretmenler için MEB müfredat kazanım ve haftalık ders planı takip yardımcısı." data-en="MEB curriculum-outcome and weekly lesson-plan tracker for teachers.">Öğretmenler için MEB müfredat kazanım ve haftalık ders planı takip yardımcısı.</p>
+          </div>
         </div>
-        <p data-tr="Öğretmenler için MEB müfredat kazanım ve haftalık ders planı takip yardımcısı." data-en="MEB curriculum-outcome and weekly lesson-plan tracker for teachers.">Öğretmenler için MEB müfredat kazanım ve haftalık ders planı takip yardımcısı.</p>
         <div class="actions">
           <a class="store-btn btn-ios" href="https://apps.apple.com/app/id6817869888" target="_blank" rel="noopener">App Store (iOS)</a>
           <a class="store-btn btn-android" href="https://play.google.com/store/apps/details?id=com.kazanim.hatirlatici.kazanim_hatirlatici" target="_blank" rel="noopener">Google Play (Android)</a>
@@ -299,11 +352,16 @@
 
       <!-- 8. Prayer Times & Qibla -->
       <article class="card" data-cat="faith">
-        <div class="card-top">
-          <h2>Prayer Times & Qibla</h2>
-          <span class="cat-tag" data-tr="Namaz & Kıble" data-en="Prayer & Qibla">Namaz & Kıble</span>
+        <div class="card-header">
+          <img class="app-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/f1/c5/a7/f1c5a7c0-0b02-ca98-66a1-06f11aafb6b6/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg" alt="Prayer Times & Qibla" loading="lazy" />
+          <div class="card-info">
+            <div class="card-top">
+              <h2>Prayer Times & Qibla</h2>
+              <span class="cat-tag" data-tr="Namaz & Kıble" data-en="Prayer & Qibla">Namaz & Kıble</span>
+            </div>
+            <p data-tr="Konum bazlı namaz vakitleri, ezan bildirimleri, kıble pusulası, zikir ve Kur'an." data-en="Location-based prayer times, azan alerts, Qibla compass, dhikr, and Quran.">Konum bazlı namaz vakitleri, ezan bildirimleri, kıble pusulası, zikir ve Kur'an.</p>
+          </div>
         </div>
-        <p data-tr="Konum bazlı namaz vakitleri, ezan bildirimleri, kıble pusulası, zikir ve Kur'an." data-en="Location-based prayer times, azan alerts, Qibla compass, dhikr, and Quran.">Konum bazlı namaz vakitleri, ezan bildirimleri, kıble pusulası, zikir ve Kur'an.</p>
         <div class="actions">
           <a class="store-btn btn-ios" href="https://apps.apple.com/app/id6764164735" target="_blank" rel="noopener">App Store (iOS)</a>
           <a class="store-btn btn-android" href="https://play.google.com/store/apps/details?id=com.prayertimes.qiblafinder.app" target="_blank" rel="noopener">Google Play (Android)</a>
@@ -312,11 +370,16 @@
 
       <!-- 9. PlantsAI -->
       <article class="card" data-cat="plant">
-        <div class="card-top">
-          <h2>PlantsAI: Plant Identifier</h2>
-          <span class="cat-tag" data-tr="Bitki Bakımı" data-en="Plant Care">Bitki Bakımı</span>
+        <div class="card-header">
+          <img class="app-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/0c/a1/16/0ca11609-b8a7-a5ea-c152-c82369cf8bce/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="PlantsAI: Plant Identifier" loading="lazy" />
+          <div class="card-info">
+            <div class="card-top">
+              <h2>PlantsAI: Plant Identifier</h2>
+              <span class="cat-tag" data-tr="Bitki Bakımı" data-en="Plant Care">Bitki Bakımı</span>
+            </div>
+            <p data-tr="Fotoğraftan bitki tanıma, bakım rehberi, yaprak analizi ve sulama hatırlatıcıları." data-en="Photo plant identification, care guide, leaf issue insights, and watering reminders.">Fotoğraftan bitki tanıma, bakım rehberi, yaprak analizi ve sulama hatırlatıcıları.</p>
+          </div>
         </div>
-        <p data-tr="Fotoğraftan bitki tanıma, bakım rehberi, yaprak analizi ve sulama hatırlatıcıları." data-en="Photo plant identification, care guide, leaf issue insights, and watering reminders.">Fotoğraftan bitki tanıma, bakım rehberi, yaprak analizi ve sulama hatırlatıcıları.</p>
         <div class="actions">
           <a class="store-btn btn-ios" href="https://apps.apple.com/app/id6769305922" target="_blank" rel="noopener">App Store (iOS)</a>
           <a class="store-btn btn-android" href="https://play.google.com/store/apps/details?id=com.plantai.identifier" target="_blank" rel="noopener">Google Play (Android)</a>
@@ -325,11 +388,16 @@
 
       <!-- 10. MomBaby AI -->
       <article class="card" data-cat="family">
-        <div class="card-top">
-          <h2>MomBaby AI: Pregnancy Tracker</h2>
-          <span class="cat-tag" data-tr="Anne & Bebek" data-en="Mom & Baby">Anne & Bebek</span>
+        <div class="card-header">
+          <img class="app-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/31/9a/fb/319afb1f-26d8-3776-695b-27c4659ed618/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="MomBaby AI: Pregnancy Tracker" loading="lazy" />
+          <div class="card-info">
+            <div class="card-top">
+              <h2>MomBaby AI: Pregnancy Tracker</h2>
+              <span class="cat-tag" data-tr="Anne & Bebek" data-en="Mom & Baby">Anne & Bebek</span>
+            </div>
+            <p data-tr="Tahmini doğum tarihi, tekme sayacı ve hafta hafta gebelik günlüğü. (Bilgilendirme amaçlıdır, tıbbi tavsiye değildir.)" data-en="Due date countdown, kick counter, and week-by-week pregnancy journal. (Informational only, not medical advice.)">Tahmini doğum tarihi, tekme sayacı ve hafta hafta gebelik günlüğü. (Bilgilendirme amaçlıdır, tıbbi tavsiye değildir.)</p>
+          </div>
         </div>
-        <p data-tr="Tahmini doğum tarihi, tekme sayacı ve hafta hafta gebelik günlüğü. (Bilgilendirme amaçlıdır, tıbbi tavsiye değildir.)" data-en="Due date countdown, kick counter, and week-by-week pregnancy journal. (Informational only, not medical advice.)">Tahmini doğum tarihi, tekme sayacı ve hafta hafta gebelik günlüğü. (Bilgilendirme amaçlıdır, tıbbi tavsiye değildir.)</p>
         <div class="actions">
           <a class="store-btn btn-ios" href="https://apps.apple.com/app/id6811705355" target="_blank" rel="noopener">App Store (iOS)</a>
           <a class="store-btn btn-android" href="https://play.google.com/store/apps/details?id=co.sorumatik.annebebek.hamilelik" target="_blank" rel="noopener">Google Play (Android)</a>
