@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sorumatik Studio — Tüm Uygulamalar / All Apps</title>
+  <meta name="description" content="Sorumatik Studio tarafından geliştirilen iOS ve Android uygulamaları: Eğitim, Yapay Zeka, Not Alma, Öğretmen Araçları, Bitki Bakımı, Namaz Vakitleri ve Hamilelik Takibi." />
+  <meta property="og:title" content="Sorumatik Studio — Tüm Uygulamalar" />
+  <meta property="og:description" content="10 resmi iOS App Store ve Google Play uygulaması tek sayfada." />
+  <meta property="og:type" content="website" />
+  <style>
+    :root {
+      --bg: #0b0f19;
+      --card: #131a2a;
+      --card-hover: #182238;
+      --border: rgba(255, 255, 255, 0.08);
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.14);
+      --ios: #0f172a;
+      --android: #10b981;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, sans-serif;
+      background: radial-gradient(circle at top center, #172554 0%, var(--bg) 45%);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.5;
+      padding: 24px 16px 56px;
+    }
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .top-bar {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 12px;
+    }
+    .lang-btn {
+      background: var(--card);
+      color: var(--text);
+      border: 1px solid var(--border);
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .brand-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    h1 {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+    .subtitle {
+      color: var(--muted);
+      font-size: 15px;
+      max-width: 540px;
+      margin: 0 auto;
+    }
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      margin: 22px 0 26px;
+    }
+    .filter-btn {
+      background: var(--card);
+      color: var(--muted);
+      border: 1px solid var(--border);
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--accent);
+      color: #082f49;
+      border-color: var(--accent);
+    }
+    .grid {
+      display: grid;
+      gap: 14px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px;
+      transition: transform 0.15s ease, background 0.15s ease;
+    }
+    .card:hover {
+      background: var(--card-hover);
+      transform: translateY(-1px);
+    }
+    .card.hidden {
+      display: none;
+    }
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+    .cat-tag {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 4px 10px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+    .card h2 {
+      font-size: 18px;
+      font-weight: 700;
+    }
+    .card p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 14px;
+    }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .store-btn {
+      flex: 1 1 160px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 10px 14px;
+      border-radius: 10px;
+      transition: opacity 0.15s ease;
+    }
+    .store-btn:hover { opacity: 0.9; }
+    .btn-ios {
+      background: #f8fafc;
+      color: #0f172a;
+    }
+    .btn-android {
+      background: rgba(16, 185, 129, 0.16);
+      color: #34d399;
+      border: 1px solid rgba(52, 211, 153, 0.35);
+    }
+    footer {
+      text-align: center;
+      margin-top: 32px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="top-bar">
+      <button class="lang-btn" id="langToggle" type="button">EN / TR</button>
+    </div>
+
+    <header>
+      <div class="brand-badge">Sorumatik Studio · Official App Hub</div>
+      <h1 data-tr="Tüm Uygulamalarımız" data-en="All Our Apps">Tüm Uygulamalarımız</h1>
+      <p class="subtitle" data-tr="Eğitim, yapay zeka, öğretmen araçları, not alma, bitki bakımı, namaz vakitleri ve hamilelik takibi için resmi iOS ve Android bağlantıları." data-en="Official iOS App Store and Google Play links for education, AI study, teacher tools, notes, plant care, prayer times, and pregnancy tracking.">Eğitim, yapay zeka, öğretmen araçları, not alma, bitki bakımı, namaz vakitleri ve hamilelik takibi için resmi iOS ve Android bağlantıları.</p>
+    </header>
+
+    <div class="filters" id="filters">
+      <button class="filter-btn active" data-cat="all" data-tr="Tümü (10)" data-en="All (10)">Tümü (10)</button>
+      <button class="filter-btn" data-cat="edu" data-tr="Eğitim & AI" data-en="Education & AI">Eğitim & AI</button>
+      <button class="filter-btn" data-cat="notes" data-tr="Not & PDF" data-en="Notes & PDF">Not & PDF</button>
+      <button class="filter-btn" data-cat="teacher" data-tr="Öğretmen & Tahta" data-en="Teachers & Board">Öğretmen & Tahta</button>
+      <button class="filter-btn" data-cat="faith" data-tr="Namaz & Kıble" data-en="Prayer & Qibla">Namaz & Kıble</button>
+      <button class="filter-btn" data-cat="plant" data-tr="Bitki Bakımı" data-en="Plant Care">Bitki Bakımı</button>
+      <button class="filter-btn" data-cat="family" data-tr="Anne & Bebek" data-en="Mom & Baby">Anne & Bebek</button>
+    </div>
+
+    <main class="grid" id="appGrid">
+      <!-- 1. Sorumatik AI -->
+      <article class="card" data-cat="edu">
+        <div class="card-top">
+          <h2>Sorumatik: AI Homework Help</h2>
+          <span class="cat-tag" data-tr="Eğitim & AI" data-en="Education & AI">Eğitim & AI</span>
+        </div>
+        <p data-tr="LaTeX beyaz tahtada sesli yapay zeka video çözümleri, fotoğraf OCR ve 8 çalışma aracı." data-en="Voiced AI video solutions on an interactive LaTeX whiteboard, photo OCR, and 8 AI study tools.">LaTeX beyaz tahtada sesli yapay zeka video çözümleri, fotoğraf OCR ve 8 çalışma aracı.</p>
+        <div class="actions">
+          <a class="store-btn btn-ios" href="https://apps.apple.com/app/id1493017386" target="_blank" rel="noopener">App Store (iOS)</a>
+          <a class="store-btn btn-android" href="https://play.google.com/store/apps/details?id=com.sorumatik" target="_blank" rel="noopener">Google Play (Android)</a>
+        </div>
+      </article>
+
+      <!-- 2. Sorumatik YKS LGS AI Koçluk -->
+      <article class="card" data-cat="edu">
+        <div class="card-top">
+          <h2>Sorumatik: YKS LGS AI Koçluk</h2>
+          <span class="cat-tag" data-tr="Eğitim & AI" data-en="Education & AI">Eğitim & AI</span>
+        </div>
+        <p data-tr="YKS/LGS yapay zeka çalışma planı, Pusula AI sesli koç, deneme OCR analizi ve hata defteri." data-en="YKS/LGS AI study planner, Pusula AI voice coach, practice-exam OCR analysis, and mistake notebook.">YKS/LGS yapay zeka çalışma planı, Pusula AI sesli koç, deneme OCR analizi ve hata defteri.</p>
+        <div class="actions">
+          <a class="store-btn btn-ios" href="https://apps.apple.com/app/id6825694786" target="_blank" rel="noopener">App Store (iOS)</a>
+          <a class="store-btn btn-android" href="https://play.google.com/store/apps/details?id=co.sorumatik.kocluk.planner" target="_blank" rel="noopener">Google Play (Android)</a>
+        </div>
+      </article>
+
+      <!-- 3. Penglide -->
+      <article class="card" data-cat="notes">
+        <div class="card-top">
+          <h2>Penglide: Notes, PDF, Tutoring</h2>
+          <span class="cat-tag" data-tr="Not & PDF" data-en="Notes & PDF">Not & PDF</span>
+        </div>
+        <p data-tr="17 vektör kalem, seçilebilir metin PDF işaretleme, lazer işaretçi ve ders sayacı. Çevrimdışı, reklamsız." data-en="17 vector pens, selectable-text PDF markup, laser pointer, and lesson timer. Offline and ad-free.">17 vektör kalem, seçilebilir metin PDF işaretleme, lazer işaretçi ve ders sayacı. Çevrimdışı, reklamsız.</p>
+        <div class="actions">
+          <a class="store-btn btn-ios" href="https://apps.apple.com/app/id6832604634" target="_blank" rel="noopener">App Store (iOS)</a>
+          <a class="store-btn btn-android" href="https://play.google.com/store/apps/details?id=co.sorumatik.penglide" target="_blank" rel="noopener">Google Play (Android)</a>
+        </div>
+      </article>
+
+      <!-- 4. Markly OMR -->
+      <article class="card" data-cat="teacher">
+        <div class="card-top">
+          <h2>Markly - OMR Sheet Scanner</h2>
+          <span class="cat-tag" data-tr="Öğretmen & Tahta" data-en="Teachers & Board">Öğretmen & Tahta</span>
+        </div>
+        <p data-tr="Telefon kamerasıyla çevrimdışı optik form okuma, net hesaplama ve PDF raporlama." data-en="Offline phone-camera bubble-sheet scanner with unclear mark review, scoring, and PDF reports.">Telefon kamerasıyla çevrimdışı optik form okuma, net hesaplama ve PDF raporlama.</p>
+        <div class="actions">
+          <a class="store-btn btn-ios" href="https://apps.apple.com/app/id6818606786" target="_blank" rel="noopener">App Store (iOS)</a>
+          <a class="store-btn btn-android" href="https://play.google.com/store/apps/details?id=co.sorumatik.omr" target="_blank" rel="noopener">Google Play (Android)</a>
+        </div>
+      </article>
+
+      <!-- 5. CastHop -->
+      <article class="card" data-cat="teacher">
+        <div class="card-top">
+          <h2>CastHop: Screen Mirroring</h2>
+          <span class="cat-tag" data-tr="Öğretmen & Tahta" data-en="Teachers & Board">Öğretmen & Tahta</span>
+        </div>
+        <p data-tr="Akıllı tahtalara ve TV'lere kablosuz ekran yansıtma." data-en="Wireless screen mirroring to smart boards and TVs.">Akıllı tahtalara ve TV'lere kablosuz ekran yansıtma.</p>
+        <div class="actions">
+          <a class="store-btn btn-ios" href="https://apps.apple.com/app/id6832547351" target="_blank" rel="noopener">App Store (iOS)</a>
+          <a class="store-btn btn-android" href="https://play.google.com/store/apps/details?id=com.sorumatik.casthop" target="_blank" rel="noopener">Google Play (Android)</a>
+        </div>
+      </article>
+
+      <!-- 6. PenPointer -->
+      <article class="card" data-cat="teacher">
+        <div class="card-top">
+          <h2>PenPointer: Smart Board Stylus</h2>
+          <span class="cat-tag" data-tr="Öğretmen & Tahta" data-en="Teachers & Board">Öğretmen & Tahta</span>
+        </div>
+        <p data-tr="Tablet ve telefonu akıllı tahta sunumları için kablosuz kalem ve işaretçiye dönüştürün." data-en="Use your tablet or phone as a pointer and stylus for smart-board tutoring.">Tablet ve telefonu akıllı tahta sunumları için kablosuz kalem ve işaretçiye dönüştürün.</p>
+        <div class="actions">
+          <a class="store-btn btn-ios" href="https://apps.apple.com/app/id6827931852" target="_blank" rel="noopener">App Store (iOS)</a>
+          <a class="store-btn btn-android" href="https://play.google.com/store/apps/details?id=com.sorumatik.penpointeripad" target="_blank" rel="noopener">Google Play (Android)</a>
+        </div>
+      </article>
+
+      <!-- 7. Kazanım Defterim -->
+      <article class="card" data-cat="teacher">
+        <div class="card-top">
+          <h2>Kazanım Defterim: Ders Planı</h2>
+          <span class="cat-tag" data-tr="Öğretmen & Tahta" data-en="Teachers & Board">Öğretmen & Tahta</span>
+        </div>
+        <p data-tr="Öğretmenler için MEB müfredat kazanım ve haftalık ders planı takip yardımcısı." data-en="MEB curriculum-outcome and weekly lesson-plan tracker for teachers.">Öğretmenler için MEB müfredat kazanım ve haftalık ders planı takip yardımcısı.</p>
+        <div class="actions">
+          <a class="store-btn btn-ios" href="https://apps.apple.com/app/id6817869888" target="_blank" rel="noopener">App Store (iOS)</a>
+          <a class="store-btn btn-android" href="https://play.google.com/store/apps/details?id=com.kazanim.hatirlatici.kazanim_hatirlatici" target="_blank" rel="noopener">Google Play (Android)</a>
+        </div>
+      </article>
+
+      <!-- 8. Prayer Times & Qibla -->
+      <article class="card" data-cat="faith">
+        <div class="card-top">
+          <h2>Prayer Times & Qibla</h2>
+          <span class="cat-tag" data-tr="Namaz & Kıble" data-en="Prayer & Qibla">Namaz & Kıble</span>
+        </div>
+        <p data-tr="Konum bazlı namaz vakitleri, ezan bildirimleri, kıble pusulası, zikir ve Kur'an." data-en="Location-based prayer times, azan alerts, Qibla compass, dhikr, and Quran.">Konum bazlı namaz vakitleri, ezan bildirimleri, kıble pusulası, zikir ve Kur'an.</p>
+        <div class="actions">
+          <a class="store-btn btn-ios" href="https://apps.apple.com/app/id6764164735" target="_blank" rel="noopener">App Store (iOS)</a>
+          <a class="store-btn btn-android" href="https://play.google.com/store/apps/details?id=com.prayertimes.qiblafinder.app" target="_blank" rel="noopener">Google Play (Android)</a>
+        </div>
+      </article>
+
+      <!-- 9. PlantsAI -->
+      <article class="card" data-cat="plant">
+        <div class="card-top">
+          <h2>PlantsAI: Plant Identifier</h2>
+          <span class="cat-tag" data-tr="Bitki Bakımı" data-en="Plant Care">Bitki Bakımı</span>
+        </div>
+        <p data-tr="Fotoğraftan bitki tanıma, bakım rehberi, yaprak analizi ve sulama hatırlatıcıları." data-en="Photo plant identification, care guide, leaf issue insights, and watering reminders.">Fotoğraftan bitki tanıma, bakım rehberi, yaprak analizi ve sulama hatırlatıcıları.</p>
+        <div class="actions">
+          <a class="store-btn btn-ios" href="https://apps.apple.com/app/id6769305922" target="_blank" rel="noopener">App Store (iOS)</a>
+          <a class="store-btn btn-android" href="https://play.google.com/store/apps/details?id=com.plantai.identifier" target="_blank" rel="noopener">Google Play (Android)</a>
+        </div>
+      </article>
+
+      <!-- 10. MomBaby AI -->
+      <article class="card" data-cat="family">
+        <div class="card-top">
+          <h2>MomBaby AI: Pregnancy Tracker</h2>
+          <span class="cat-tag" data-tr="Anne & Bebek" data-en="Mom & Baby">Anne & Bebek</span>
+        </div>
+        <p data-tr="Tahmini doğum tarihi, tekme sayacı ve hafta hafta gebelik günlüğü. (Bilgilendirme amaçlıdır, tıbbi tavsiye değildir.)" data-en="Due date countdown, kick counter, and week-by-week pregnancy journal. (Informational only, not medical advice.)">Tahmini doğum tarihi, tekme sayacı ve hafta hafta gebelik günlüğü. (Bilgilendirme amaçlıdır, tıbbi tavsiye değildir.)</p>
+        <div class="actions">
+          <a class="store-btn btn-ios" href="https://apps.apple.com/app/id6811705355" target="_blank" rel="noopener">App Store (iOS)</a>
+          <a class="store-btn btn-android" href="https://play.google.com/store/apps/details?id=co.sorumatik.annebebek.hamilelik" target="_blank" rel="noopener">Google Play (Android)</a>
+        </div>
+      </article>
+    </main>
+
+    <footer>
+      <p>Developed by <strong>Sorumatik Studio</strong> · <a href="https://play.google.com/store/apps/dev?id=5557399811267718893" target="_blank" rel="noopener">Google Play Developer Page</a></p>
+    </footer>
+  </div>
+
+  <script>
+    (function () {
+      let lang = (navigator.language || "tr").toLowerCase().startsWith("tr") ? "tr" : "en";
+      const applyLang = () => {
+        document.documentElement.lang = lang;
+        document.querySelectorAll("[data-tr][data-en]").forEach((el) => {
+          el.textContent = el.getAttribute("data-" + lang);
+        });
+        document.getElementById("langToggle").textContent = lang === "tr" ? "English" : "Türkçe";
+      };
+      document.getElementById("langToggle").addEventListener("click", () => {
+        lang = lang === "tr" ? "en" : "tr";
+        applyLang();
+      });
+      document.querySelectorAll(".filter-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          document.querySelectorAll(".filter-btn").forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+          const cat = btn.getAttribute("data-cat");
+          document.querySelectorAll(".card").forEach((card) => {
+            card.classList.toggle("hidden", cat !== "all" && card.getAttribute("data-cat") !== cat);
+          });
+        });
+      });
+      applyLang();
+    })();
+  </script>
+</body>
+</html>
