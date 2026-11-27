@@ -6,7 +6,7 @@
   <title>Sorumatik Studio — Tüm Uygulamalar / All Apps</title>
   <meta name="description" content="Sorumatik Studio tarafından geliştirilen iOS ve Android uygulamaları: Eğitim, Yapay Zeka, Not Alma, Öğretmen Araçları, Bitki Bakımı, Namaz Vakitleri ve Hamilelik Takibi." />
   <meta property="og:title" content="Sorumatik Studio — Tüm Uygulamalar" />
-  <meta property="og:description" content="11 resmi mobil uygulama tek sayfada." />
+  <meta property="og:description" content="12 resmi mobil uygulama tek sayfada." />
   <meta property="og:type" content="website" />
   <style>
     :root {
@@ -221,7 +221,7 @@
     </header>
 
     <div class="filters" id="filters">
-      <button class="filter-btn active" data-cat="all" data-tr="Tümü (11)" data-en="All (11)">Tümü (11)</button>
+      <button class="filter-btn active" data-cat="all" data-tr="Tümü (12)" data-en="All (12)">Tümü (12)</button>
       <button class="filter-btn" data-cat="edu" data-tr="Eğitim & AI" data-en="Education & AI">Eğitim & AI</button>
       <button class="filter-btn" data-cat="notes" data-tr="Not & PDF" data-en="Notes & PDF">Not & PDF</button>
       <button class="filter-btn" data-cat="teacher" data-tr="Öğretmen & Tahta" data-en="Teachers & Board">Öğretmen & Tahta</button>
@@ -429,6 +429,24 @@
           <span class="store-btn btn-disabled" data-tr="App Store (iOS Çok Yakında)" data-en="App Store (iOS Coming Soon)">App Store (iOS Çok Yakında)</span>
         </div>
       </article>
+
+      <!-- 12. Pikomat: Matematik Oyunları -->
+      <article class="card" data-cat="edu kids">
+        <div class="card-header">
+          <img class="app-icon" src="https://play-lh.googleusercontent.com/dRO1d1YQadrCHMByvKtno49a8gaDqeLDgJa0SvELIEnANiZaY4nvqdAopRZcw0FP6t3NIehKBdpt5--tHxX4lw=w240-h480-rw" alt="Pikomat: Matematik Oyunları" loading="lazy" />
+          <div class="card-info">
+            <div class="card-top">
+              <h2>Pikomat: Matematik Oyunları</h2>
+              <span class="cat-tag" data-tr="Matematik & Eğitici Oyun" data-en="Math & Learning Game">Matematik & Eğitici Oyun</span>
+            </div>
+            <p data-tr="3–9 yaş arası çocuklar için reklamsız ve aboneliksiz erken matematik oyunu. 66 özgün oyun, süre baskısı olmadan Türkçe ve İngilizce sesli anlatımla eğlenceli matematik öğrenimi." data-en="Ad-free, subscription-free early math learning game for ages 3–9. 66 engaging mini-games with Turkish & English voiceovers, zero time pressure, and offline play.">3–9 yaş arası çocuklar için reklamsız ve aboneliksiz erken matematik oyunu. 66 özgün oyun, süre baskısı olmadan Türkçe ve İngilizce sesli anlatımla eğlenceli matematik öğrenimi.</p>
+          </div>
+        </div>
+        <div class="actions">
+          <a class="store-btn btn-android" href="https://play.google.com/store/apps/details?id=com.pikomat.app" target="_blank" rel="noopener">Google Play (Android)</a>
+          <span class="store-btn btn-disabled" data-tr="App Store (iOS - Çok Yakında)" data-en="App Store (iOS - Coming Soon)">App Store (iOS - Çok Yakında)</span>
+        </div>
+      </article>
     </main>
 
     <footer>
@@ -456,7 +474,7 @@
           btn.classList.add("active");
           const cat = btn.getAttribute("data-cat");
           document.querySelectorAll(".card").forEach((card) => {
-            card.classList.toggle("hidden", cat !== "all" && card.getAttribute("data-cat") !== cat);
+            card.classList.toggle("hidden", cat !== "all" && !card.getAttribute("data-cat").split(" ").includes(cat));
           });
         });
       });
